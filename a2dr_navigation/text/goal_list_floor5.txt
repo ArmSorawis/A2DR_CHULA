@@ -1,0 +1,61 @@
+-6.54, 1.20, 0.0, 0.0, 0.0, 0.99, 0.11
+-8.59, 12.14, 0.0, 0.0, 0.0, 0.99, 0.10
+-7.69, 1.95, 0.0, 0.0, 0.0, -0.79, 0.61
+-6.49, 10.10, 0.0, 0.0, 0.0, 0.63, 0.78
+0.11, 12.68, 0.0, 0.0, 0.0, 0.62, 0.78
+9.06, 10.64, 0.0, 0.0, 0.0, -0.11, 0.99
+14.56, 9.37, 0.0, 0.0, 0.0, -0.11, 0.99
+18.47, 8.10, 0.0, 0.0, 0.0, -0.11, 0.99
+-8.59, 12.14, 0.0, 0.0, 0.0, 0.99, 0.10
+-6.54, 1.20, 0.0, 0.0, 0.0, -0.10, 0.99
+
+
+goal : [position_x, position_y, position_z, orientation_x, orientation_y, orientation_z, orientation_w]
+
+0. Base station
+1. Reception Station
+2. Lab 1 Station (Out)
+3. Lawn Station (Humanoid)
+4. Electronic Lab Station
+5. Lab 3 Station, Bear Lab (fb502)
+6. Lab 2 Station, Class Room Station (fb503)
+7. Lab 1 Station
+8. Reception Station
+9. Base station
+
+# # Toilet station
+		# nav_node.args = """ 			_position_x:=-6.19
+		# 					_position_y:=10.41 
+		# 					_position_z:=0.0 
+		# 					_orientation_x:=0.0 
+		# 					_orientation_y:=0.0 
+		# 					_orientation_z:=-0.19 
+		# 					_orientation_w:=0.98 """
+
+
+# # Alignment position
+		# nav_node.args = """ 			_position_x:=-11.9086055756 
+		# 					_position_y:=8.53689193726 
+		# 					_position_z:=0.0 
+		# 					_orientation_x:=0.0 
+		# 					_orientation_y:=0.0 
+		# 					_orientation_z:=0.480664921731 
+		# 					_orientation_w:=0.876904346561 """
+
+# # Test sequence postion (Robot go forward)
+		# nav_node.args = """ 			_position_x:=-8.745470047 
+		# 					_position_y:=1.292 
+		# 					_position_z:=0.0 
+		# 					_orientation_x:=0.0 
+		# 					_orientation_y:=0.0 
+		# 					_orientation_z:=0.996016345989 
+		# 					_orientation_w:=0.0891708389748 """
+
+# # Station one position
+		# nav_node.args = """ 			_position_x:=-12.6612606049
+		# 					_position_y:=4.67678451538
+		# 					_position_z:=0.0 
+		# 					_orientation_x:=0.0 
+		# 					_orientation_y:=0.0 
+		# 					_orientation_z:=0.994964283697  
+		# 					_orientation_w:=0.100230106097 """

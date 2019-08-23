@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="map_file" default="$(find a2dr_localization)/maps/fibo_f5_loc.yaml"/>
+    
+    <!-- ROBOT BRING UP NODE -->
+    <include file="$(find a2dr_bringup)/launch/a2dr_bringup.launch" />
+
+	<!-- LOAD MAP --> 
+    <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)">
+        <param name="frame_id" value="map"/> 
+	</node> 
+
+    <!-- AMCL NODE -->
+    <node pkg="amcl" type="amcl" name="amcl" output="screen">
+        <rosparam file="$(find a2dr_localization)/config/amcl_params.yaml" command="load"/>
+    </node>
+
+    <!-- SETUP FIXED AMCL ERROR NODE   -->
+    <!-- <node name="amclPose_reset_node"  pkg="a2dr_localization"    type="amclPose_reset.py"/> -->
+
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find a2dr_localization)/config/amcl_localization.rviz">
+    </node> -->
+
+</launch>

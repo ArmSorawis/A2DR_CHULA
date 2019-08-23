@@ -1,0 +1,29 @@
+global_costmap:
+  global_frame: map
+  robot_base_frame: base_footprint
+
+  update_frequency: 3.0 #3.0
+  publish_frequency: 0.5 #0.5
+
+  static_map: true
+  resolution: 0.03
+  width: 6.0
+  height: 6.0
+  
+  # inflation_radius: 1.75
+  # cost_scaling_factor: 2.58
+
+  inflation_radius: 1.75 #1.75 #1.75
+  cost_scaling_factor: 2.58 #2.58
+
+  allow_unknown: true
+  inflate_unknown: true
+  inf_is_valid: true
+  
+  transform_tolerance: 0.2 #0.5
+
+  obstacle_layer:
+    enabled: false
+
+  # plugins:
+  #   - {name: static_layer, type: 'costmap_2d::StaticLayer'}

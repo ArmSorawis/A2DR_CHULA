@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot name="a2dr"
+    xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<link name="base_footprint"/>
+
+    <joint name="base_footprint_to_base_link" type="fixed">
+     	<parent link="base_footprint"/>
+     	<child link="base_link"/>
+     	<origin rpy="0 0 0" xyz="0.0 0.0 0.75"/>
+   	</joint> 
+
+	<joint name="base_link_to_lidar" type="fixed">
+     	<parent link="base_link"/>
+     	<child link="base_laser"/>
+     	<origin rpy="0 0 0" xyz="-0.11 0.0 0.085"/>
+   	</joint> 
+
+   	<link name="base_laser"/>
+
+   	<joint name="imu_fixed" type="fixed">
+   	<parent link="base_link"/>
+     	<child link="base_imu"/>
+     	<origin rpy="0 0 0" xyz="0.2 0.0 0.75"/>
+    	</joint> 
+
+    <link name="base_imu"/>
+</robot>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="name" default="imu_mpu9250"/>
+    <arg name="rviz_config" default="$(find a2dr_model)/rviz/view_model.rviz"/>
+    <arg name="urdf_file" default="$(find xacro)/xacro '$(find a2dr_model)/sensors/$(arg name)/$(arg name).xacro'"/>
+
+    <!-- Robot param -->
+    <param name="robot_description" command="$(arg urdf_file)"/>
+
+    <!-- Combine joint values -->
+    <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher">
+        <param name="publish_frequency" value="20"/>
+        <param name="use_tf_static" value="true"/>
+    </node>
+
+    <!-- send fake joint values -->
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
+        <param name="use_gui" value="true"/>
+    </node>
+
+    <!-- Rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(arg rviz_config)"/>
+
+</launch>

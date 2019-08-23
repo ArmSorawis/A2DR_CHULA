@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="rviz_config" default="$(find a2dr_description)/rviz/a2dr_rviz.rviz"/>
+
+    <!-- Robot state -->
+    <include file="$(find a2dr_description)/launch/a2dr_description.launch"/>
+
+    <!-- send fake joint values -->
+    <!-- <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
+        <param name="use_gui" value="false"/>
+    </node> -->
+
+    <!-- Rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(arg rviz_config)"/>
+
+</launch>

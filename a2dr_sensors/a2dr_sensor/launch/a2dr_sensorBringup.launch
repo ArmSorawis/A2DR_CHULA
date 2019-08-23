@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch> 
+
+    <!-- Rplidar -->
+    <include file="$(find a2dr_sensor)/launch/includes/rplidar.launch" />
+
+    <!--SETUP WHEEL VELOCITY NODE -->
+    <!-- <node name="wheelvel_publisher_node"  pkg="a2dr_sensor"    type="wheelvel_publisher_node.py"/> -->
+
+    <!-- OBSTACLE DETECTION NODE -->
+    <!-- <node name="obstacleDetection_lidar_node"  pkg="a2dr_sensor"    type="obstacleDetection_lidar.py"   output="screen"/> -->
+
+    <!--SETUP WHEEL VELOCITY FILTER NODE -->
+    <!-- <node name="wheelVel_filter_node"  pkg="a2dr_bringup"    type="wheelVel_filter.py"/> -->
+
+    <!--SETUP IMU AND ULTRASONIC  -->
+    <!-- <node name="sensor_publisher_node"  pkg="a2dr_sensor"    type="sensor_publisher.py"/> -->
+
+</launch>

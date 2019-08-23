@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Localiztion Arguments -->
+    <arg name="localization_method" default="amcl" doc="localizaion type [amcl, pure]"/>
+    <arg name="localization_floor" default="5" doc="floor [2, 5]"/>
+
+    <!-- ROBOT BRING UP NODE -->
+    <include file="$(find a2dr_bringup)/launch/a2dr_bringup.launch" />
+
+    <!-- GUI NODE -->
+    <include file="$(find a2dr_gui)/launch/a2dr_gui.launch" />
+
+    <!-- RQT_RECONFIGURE -->
+    <!-- <node name="rqt_reconfigure"  pkg="rqt_reconfigure"    type="rqt_reconfigure"/> -->
+
+    <!-- SMACH VIEWER -->
+    <!-- <node name="smach_viewer"     pkg="smach_viewer"       type="smach_viewer.py"/> -->
+
+    <!-- ROBOT LOCALIZATION NODE -->
+    <include file="$(find a2dr_localization)/launch/$(arg localization_method)_localization.launch" />
+
+    <!-- GOAL TRANSFORM -->
+    <!-- <include file="$(find a2dr_bringup)/launch/test_floor$(arg localization_floor).launch" /> -->
+
+    <!-- A2DR NAVIGATION -->
+    <include file="$(find a2dr_navigation)/launch/a2dr_navigation.launch" />
+
+    <!-- RVIZ -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find a2dr_navigation)/config/a2dr_navigation.rviz">
+    </node>
+
+</launch>

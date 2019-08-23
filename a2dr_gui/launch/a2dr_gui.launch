@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <!--SETUP GUI NODE-->
+    <node name="a2dr_gui_node"   pkg="a2dr_gui"    type="a2dr_gui.py"   output="screen">
+    </node>
+</launch>

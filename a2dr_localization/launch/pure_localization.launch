@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Arguments -->
+    <arg name="localization_floor" default="5" doc="floor [1, 2, 3, 4, 5]"/>
+    <arg name="configuration_basename" default="a2dr_robot.lua"/>
+    <arg name="slam_methods" default="cartographer" doc="slam type [gmapping, cartographer]"/>
+
+    <!-- Ohm model -->
+    <include file="$(find a2dr_description)/launch/a2dr_description.launch" />
+
+    <!-- Ydlidar -->
+    <include file="$(find a2dr_sensor)/launch/includes/rplidar.launch" />
+    
+    <!-- ROBOT BRING UP NODE
+    <include file="$(find a2dr_bringup)/launch/a2dr_bringup.launch" /> -->
+
+    <!-- Localization -->
+    <node pkg="cartographer_ros" type="cartographer_node" name="cartographer_node" args="
+    -configuration_directory $(find a2dr_description)/config
+    -load_state_filename $(find a2dr_bags)/bags/a2dr_cartographer.bag.pbstream
+    -configuration_basename a2dr_robot_localization.lua"/>
+    
+    <!-- SETUP FIXED AMCL ERROR NODE   -->
+    <!-- <node name="purePose_reset_node"  pkg="a2dr_localization"    type="purePose_reset.py"/> -->
+
+    <!-- GOAL TRANSFORM -->
+    <!-- <include file="$(find a2dr_bringup)/launch/goal_floor$(arg localization_floor).launch" /> -->
+
+     <!-- rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find a2dr_localization)/config/pure_localization.rviz"/>
+
+</launch>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="nav_floor" default="5" doc="floor [1, 2, 3, 4, 5]"/>
+    <arg name="num_floor"  default="5thFloor" doc="floor [1stFloor, 2ndFloor, 3rdFloor, 4thFloor, 5thFloor]"/>
+    
+    <arg name="map_topic" default="/map_nav"/>
+    <arg name="cmdvel_topic" default="/nav_vel"/>
+    <arg name="odom_topic" default="/odom"/>
+
+    <!-- <node name="serial_node"  pkg="a2dr_bringup"    type="serial_node.py"/> -->
+
+    <arg name="map_nav_file" default="$(find a2dr_navigation)/maps/fibo_f5_nav.yaml"/>
+    <!-- ROBOT TELEOP NODE -->
+    <!-- <include file="$(find teleop_joy)/launch/simple_joy.launch" /> -->
+    <!-- ROBOT BRING UP NODE -->
+    <!-- <include file="$(find a2dr_bringup)/launch/a2dr_bringup.launch" /> -->
+
+    <!-- ROBOT LOCALIZATION NODE -->
+    <include file="$(find a2dr_localization)/launch/amcl_localization.launch" />
+
+    <!-- Map server -->
+    <node pkg="map_server" name="map_nav_server" type="map_server" args="$(arg map_nav_file)">
+        <param name="frame_id" value="map"/>
+        <remap from="map" to="/map_nav" />
+        <remap from="static_map" to="static_map_nav" />
+    </node>
+
+    <!-- MOVE BASE NODE -->
+    <node pkg="move_base" type="move_base" name="move_base" respawn="false" output="screen">
+        <rosparam file="$(find a2dr_navigation)/params/$(arg num_floor)/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+        <rosparam file="$(find a2dr_navigation)/params/$(arg num_floor)/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+        <!-- <rosparam file="$(find ohm_navigation)/params/dwa_local_planner_params.yaml" command="load"/> -->
+        <rosparam file="$(find a2dr_navigation)/params/$(arg num_floor)/global_costmap_params.yaml" command="load"/>
+        <rosparam file="$(find a2dr_navigation)/params/$(arg num_floor)/move_base_params.yaml" command="load"/>
+        <rosparam file="$(find a2dr_navigation)/params/$(arg num_floor)/base_local_planner_params.yaml" command="load"/>
+        <rosparam file="$(find a2dr_navigation)/params/$(arg num_floor)/local_costmap_params.yaml" command="load"/>
+
+        <remap from="map" to="$(arg map_topic)"/>
+        <remap from="cmd_vel" to="$(arg cmdvel_topic)"/>
+        <remap from="odom" to="$(arg odom_topic)"/>
+    </node>
+    
+    <!-- ROBOT TWIST MUX NODE -->
+    <include file="$(find twist_mux)/launch/twist_mux.launch" />
+
+     <!-- OBSTACLE DETECTION NODE -->
+    <!-- <node name="obstacleDetection_lidar_node"  pkg="a2dr_sensor"    type="obstacleDetection_lidar.py"   output="screen"/> -->
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find a2dr_navigation)/config/a2dr_navigation.rviz">
+    </node>
+    
+
+</launch>

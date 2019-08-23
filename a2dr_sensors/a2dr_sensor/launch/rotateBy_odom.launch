@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- SETUP COMMAND VELOCITY SUBSCRIBER NODE -->
+    <node name="cmdvel_subscriber_node"   pkg="a2dr_bringup"    type="cmdvel_subscriber.py"/>
+
+    <!--SETUP WHEEL VELOCITY NODE -->
+    <node name="wheelvel_publisher_node"  pkg="a2dr_sensor"    type="wheelvel_publisher.py"/>
+
+    <!--SETUP ODOMERTRY BROADCASTER NODE -->
+    <node name="odom_broadcaster_node"  pkg="a2dr_bringup"    type="odom_broadcaster.py"/>
+
+    <!-- A2DR Rotate -->
+    <node pkg="a2dr_sensor" type="rotateBy_odom.py" name="rotateBy_odom_node" output="screen"/>
+</launch>

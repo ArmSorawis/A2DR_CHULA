@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Arguments -->
+    <arg name="tracking_methods" default="depth" doc="tracking type [qr, depth]"/>
+
+     <!-- Ultrasonic -->
+    <node name="sensor_publisher_node"   pkg="a2dr_sensor"    type="sensor_publisher.py"/>
+    
+    <!-- SETUP COMMAND VELOCITY SUBSCRIBER NODE -->
+    <node name="cmdvel_subscriber_node"   pkg="a2dr_bringup"    type="cmdvel_subscriber.py"/>
+
+    <!-- Depth Alignment -->
+    <node pkg="a2dr_sensor" type="depthAlignment_ultrasonic.py" name="depthAlignment_ultrasonic_node" output="screen"/>
+</launch>

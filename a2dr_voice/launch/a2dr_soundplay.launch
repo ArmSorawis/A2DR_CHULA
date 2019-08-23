@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="device" default="" />
+
+    <node name="soundplay_node" pkg="sound_play" type="soundplay_node.py">
+        <param name="device" value="$(arg device)" />
+    </node>
+    <!-- <node name="soundplay_node" pkg="sound_play" type="soundplay_node.py"> -->
+        <!-- <param name="device" value="$(arg device)" /> -->
+    <!-- </node> -->
+
+</launch>

@@ -1,0 +1,25 @@
+global_costmap:
+
+  global_frame: map
+  robot_base_frame: base_link
+
+  update_frequency: 3.0   #5.0
+  publish_frequency: 1.0  #1.0
+
+  static_map: true
+  resolution: 0.03
+  width: 6.0
+  height: 6.0
+  
+  inflation_radius: 1.75    #1.75
+  cost_scaling_factor: 10   #2.58
+
+  inf_is_valid: true
+
+  allow_unknown: true
+  inflate_unknown: true
+
+  # transform_tolerance: 0.2  #0.5
+
+  obstacle_layer:
+    enabled: true

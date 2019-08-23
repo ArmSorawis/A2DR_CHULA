@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Rplidar -->
+    <include file="$(find a2dr_sensor)/launch/includes/rplidar.launch" />
+    
+    <!-- SETUP COMMAND VELOCITY SUBSCRIBER NODE -->
+    <!-- <node name="cmdvel_subscriber_node"   pkg="a2dr_bringup"    type="cmdvel_subscriber.py"/> -->
+
+    <!-- Parallel Alignment -->
+    <node pkg="a2dr_sensor" type="planeAlignment_lidar.py" name="planeAlignment_lidar_node" output="screen"/>
+</launch>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- A2DR BASE BRING UP -->
+    <include file="$(find a2dr_bringup)/launch/a2dr_baseBringup.launch" />
+    
+    <!-- A2DR model -->
+    <include file="$(find a2dr_description)/launch/a2dr_description.launch" />
+
+    <!-- A2DR SENSOR BRING UP -->
+    <include file="$(find a2dr_sensor)/launch/a2dr_sensorBringup.launch" />
+
+    <!-- A2DR SOUND NODE -->
+    <include file="$(find a2dr_voice)/launch/a2dr_soundplay.launch" />
+
+    <!--SETUP SILENT SUBSCRIBER NODE-->
+    <node name="a2dr_silentplay_node"   pkg="a2dr_voice"    type="silent_soundplay.py" />
+
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find a2dr_bringup)/rviz/a2dr_odom.rviz">
+    </node> -->
+
+</launch>
+    

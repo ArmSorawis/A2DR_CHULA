@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Ultrasonic -->
+    <node name="sensor_publisher_node"   pkg="a2dr_sensor"    type="sensor_publisher.py"/>
+    
+    <!-- SETUP COMMAND VELOCITY SUBSCRIBER NODE -->
+    <node name="cmdvel_subscriber_node"   pkg="a2dr_bringup"    type="cmdvel_subscriber.py"/>
+
+    <!-- Parallel Alignment -->
+    <node name="planeAlignment_ultrasonic_node" pkg="a2dr_sensor" type="planeAlignment_ultrasonic.py" output="screen"/>
+</launch>

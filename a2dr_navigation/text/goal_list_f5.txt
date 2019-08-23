@@ -1,0 +1,17 @@
+15.76, 9.25, 0.0, 0.0, 0.0, 0.63, 0.78
+18.18, 8.14, 0.0, 0.0, 0.0, -0.78, 0.63
+12.80, 9.29, 0.0, 0.0, 0.0, -0.78, 0.63
+7.65, 10.48, 0.0, 0.0, 0.0, -0.78, 0.63
+9.20, 10.93, 0.0, 0.0, 0.0, 0.63, 0.78
+14.45, 9.72, 0.0, 0.0, 0.0, 0.63, 0.78
+24.09, 7.16, 0.0, 0.0, 0.0, -0.10, 0.99
+
+goal : [position_x, position_y, position_z, orientation_x, orientation_y, orientation_z, orientation_w]
+
+0. Drug machine #8.85
+1. Lab 1
+2. Lab 2
+3. Lab 3
+4. Common Room 
+5. Control Lab
+6. Base station

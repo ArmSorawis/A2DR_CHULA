@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- SETUP COMMAND VELOCITY SUBSCRIBER NODE -->
+    <node name="cmdvel_subscriber_node"   pkg="a2dr_bringup"    type="cmdvel_subscriber.py"/>
+
+    <!-- SETUP SENSOR PUBLISHER NODE -->
+    <node name="sensor_publisher_node"   pkg="a2dr_sensor"    type="sensor_publisher.py"/>
+
+    <!-- A2DR Rotate -->
+    <node pkg="a2dr_sensor" type="rotateBy_imu.py" name="rotateBy_imu_node" output="screen"/>
+</launch>

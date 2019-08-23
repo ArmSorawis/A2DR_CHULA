@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- SETUP A2DR FSM NODE -->
+    <node name="a2dr_workflow_node"  pkg="a2dr_fsm"    type="a2dr_workflow.py"  output="screen"/>
+</launch>

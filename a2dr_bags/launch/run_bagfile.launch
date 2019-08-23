@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+    <param name="use_sim_time" value="true" />
+
+    <!-- Arguments -->
+    <arg name="path" default="/home/a2dr_ws/src/a2dr_bags/bags/"/>
+	<arg name="file" default="a2dr_cartographer.bag" />
+	<arg name="rosbag_rate" default="1" />
+	<arg name="topic_filter" default=""/>
+
+	<!-- Playback rosbag -->
+	<node pkg="rosbag" type="play" name="player" output="screen" args="-r $(arg rosbag_rate) --clock $(arg path)$(arg file) $(arg topic_filter)"/>
+</launch>

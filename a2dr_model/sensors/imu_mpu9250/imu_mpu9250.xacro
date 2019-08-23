@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<robot name="imu_mpu9250" 
+    xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <xacro:macro name="imu_mpu9250" params="prefix parent *origin prefix_topic">
+        <joint name="${prefix}_fixed" type="fixed">
+            <xacro:insert_block name="origin"/>
+            <parent link="${parent}"/>
+            <child link="${prefix}_frame"/>
+        </joint>
+
+        <link name="${prefix}_frame">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <box size="0.02 0.02 0.01"/>
+                </geometry>
+                <material name="blue"/>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <box size="0.02 0.02 0.01"/>
+                </geometry>
+                <material name="blue"/>
+            </collision>
+            <box_inertia m="0.01" x="0.02" y="0.02" z="0.02"/>
+        </link>
+
+        <gazebo reference="${prefix}_frame">
+            <gravity>true</gravity>
+            <sensor name="${prefix}_sensor" type="imu">
+                <pose>0 0 0 0 0 0</pose>
+                <update_rate>10</update_rate>
+                <plugin  name="${prefix}_gazebo_plugin" filename="libgazebo_ros_imu_sensor.so">
+                    <robotNamespace>/eleven</robotNamespace>
+                    <topicName>${prefix_topic}/imu</topicName>
+                    <bodyName>base_link</bodyName>
+                    <updateRateHZ>10.0</updateRateHZ>
+                    <gaussianNoise>0.0</gaussianNoise>
+                    <xyzOffset>0 0 0</xyzOffset>
+                    <rpyOffset>0 0 0</rpyOffset>
+                    <frameName>${prefix}_frame</frameName>
+                </plugin>
+            </sensor>
+        </gazebo>
+    </xacro:macro>
+</robot>

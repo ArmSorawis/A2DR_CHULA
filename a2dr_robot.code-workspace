@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "a2dr_master",
+			"path": "/home/kitti/Documents/PlatformIO/Projects/a2dr_master"
+		}
+	],
+	"settings": {
+		"python.autoComplete.extraPaths": [
+			"/home/a2dr-robot/cartographer_ws/install_isolated/lib/python2.7/dist-packages",
+			"/home/a2dr-robot/a2dr_ws/devel/lib/python2.7/dist-packages",
+			"/opt/ros/kinetic/lib/python2.7/dist-packages"
+		],
+		"terminal.integrated.env.linux": {
+			"PATH": "/home/ohm/.platformio/penv/bin:/home/ohm/.platformio/penv:/home/ohm/cartographer_ws/install_isolated/bin:/home/ohm/OHM/devel/bin:/opt/ros/kinetic/bin:/opt/Qt5.5.1/Tools/QtCreator/bin:/opt/Qt5.5.1/Tools/QtCreator/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+			"PLATFORMIO_CALLER": "vscode"
+		}
+	}
+}
